@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-const getAllDeals = require('../services/Pipedrive/getDeals');
+const getAllDeals = require('../providers/Pipedrive/getDeals');
 
 const pipedriveRouter = Router();
 
