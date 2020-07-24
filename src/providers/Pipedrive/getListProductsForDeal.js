@@ -1,6 +1,6 @@
 const pipedrive = require('./config');
 
-const getDetailDeal = async (id) => {
+const getListProductsForDeal = async (id) => {
   try {
     const responseDeal = await pipedrive.DealsController.listProductsAttachedToADeal({ id });
     return responseDeal;
@@ -8,5 +8,5 @@ const getDetailDeal = async (id) => {
     console.log(error)
   }
 }
-module.exports = getDetailDeal;
+module.exports = getListProductsForDeal;
 
