@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
+import pipedriveRouter from './pipedrive.routes';
+
 const routes = Router();
 
-routes.get('/', (req, res) => {
-  return res.json({ ok: true });
-});
+routes.use('/pipedrive', pipedriveRouter);
 
 export default routes;
