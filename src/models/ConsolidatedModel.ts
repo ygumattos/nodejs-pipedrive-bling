@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-const ConsolidatedSchema = new mongoose.Schema({
+const ConsolidatedSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -15,5 +15,5 @@ const ConsolidatedSchema = new mongoose.Schema({
   },
 });
 
-const Consolidated = mongoose.model('Consolidated', ConsolidatedSchema);
+const Consolidated = model('Consolidated', ConsolidatedSchema);
 export default Consolidated;

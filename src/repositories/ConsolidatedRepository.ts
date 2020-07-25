@@ -1,18 +1,18 @@
 import { Document } from 'mongoose';
+import moment from 'moment';
 import ConsolidatedModel from '../models/ConsolidatedModel';
 
 class ConsolidatedRepository {
-  // public async findByDate(date: Date): Promise<Appointment | null> {
-  //   const findAppointment = await this.findOne({
-  //     where: { date },
-  //   });
+  public async findByDate(date: Date): Promise<Document[] | null> {
+    const start = moment(date).startOf('day').subtract(3, 'hours');
+    const end = moment(date).endOf('day').subtract(3, 'hours');
+    console.log(moment(start).toDate());
+    console.log(moment(end).toDate());
+    const findConsolidatedDeals = await ConsolidatedModel.find({
+      date: { $gte: start, $lte: end },
+    });
 
-  //   return findAppointment || null;
-  // }
-
-  public async find(): Promise<Document[]> {
-    const findConsolidated = await ConsolidatedModel.find({});
-    return findConsolidated;
+    return findConsolidatedDeals || null;
   }
 }
 
