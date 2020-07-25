@@ -7,7 +7,7 @@
 #### For init:
 
 ```
-yarn ou npm i
+yarn or npm i
 ```
 #### For use:
 
