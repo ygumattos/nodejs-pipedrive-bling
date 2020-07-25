@@ -13,8 +13,6 @@ export default class Service {
           .getDate();
         const TodayDate = moment().toDate().getDate();
 
-        console.log(formartDealDate === TodayDate);
-
         if (formartDealDate !== TodayDate) return;
 
         const consolidated = new ConsolidatedModel({

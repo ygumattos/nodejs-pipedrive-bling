@@ -20,5 +20,6 @@ export default interface Response {
     situacao: string;
     totalvenda: number;
     vendedor: string;
+    date: Date;
   };
 }

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import WonDealsService from './getWonDealsServices';
 import ParseBlingSale from './parseBlingSale';
 import CreateBling from './createBlingSaleService';
@@ -28,6 +29,10 @@ export default class Service {
     const createBling = new CreateBling();
     try {
       parsedDeals.map(async deal => {
+        const formartDealDate = moment(deal.pedido.date).toDate().getDate();
+        const TodayDate = moment().toDate().getDate();
+
+        if (formartDealDate !== TodayDate) return false;
         const newDeal = await createBling.execute(deal);
         return newDeal;
       });

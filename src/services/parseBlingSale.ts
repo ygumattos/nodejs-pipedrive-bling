@@ -35,6 +35,7 @@ interface Request {
   currency: string;
   status: string;
   products_count: number;
+  won_time: Date;
 }
 
 export default class Service {
@@ -62,6 +63,7 @@ export default class Service {
         situacao: 'Em aberto',
         totalvenda: deal.products.total_value,
         vendedor: deal.user_id.name,
+        date: deal.won_time,
       },
     };
 
