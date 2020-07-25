@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import WonDealsService from '../services/getWonDealsServices';
+import ConsolidatedPipedriveBlingService from '../services/consolidatedPipedriveBlingService';
 
 const getProductsDeal = require('../providers/Pipedrive/getListProductsForDeal');
 const getParticipantsDeal = require('../providers/Pipedrive/getListParticipantsOfDeal');
@@ -30,6 +31,13 @@ pipedriveRouter.get('/wondeals', async (req, res) => {
   const wonDeals = await getDeals.execute();
 
   res.json(wonDeals);
+});
+
+pipedriveRouter.get('/deals/consolidated', async (req, res) => {
+  const getConsolidedDealService = new ConsolidatedPipedriveBlingService();
+  const consolidedDeals = await getConsolidedDealService.execute();
+
+  res.json(consolidedDeals);
 });
 
 export default pipedriveRouter;

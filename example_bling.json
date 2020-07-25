@@ -5,15 +5,15 @@
   "cliente": {
     "nome": org_id.name ,
     "tipoPessoa": person_id || org_id,
-    "endereco":org_id.address , //Não obrigatorio no pipe
+    *"endereco":org_id.address , //Não obrigatorio no pipe
     "cpf_cnpj": , //Não obrigatorio no pipe
     "ie_rg": , //Não obrigatorio no pipe
-    "numero": , //Não obrigatorio no pipe
-    "complemento": , //Não obrigatorio no pipe
-    "bairro": , //Não obrigatorio no pipe
-    "cep": , //Não obrigatorio no pipe
-    "cidade": , //Não obrigatorio no pipe
-    "uf": , //Não obrigatorio no pipe
+    *"numero": , //Não obrigatorio no pipe
+    *"complemento": , //Não obrigatorio no pipe
+    *"bairro": , //Não obrigatorio no pipe
+    *"cep": , //Não obrigatorio no pipe
+    *"cidade": , //Não obrigatorio no pipe
+    *"uf": , //Não obrigatorio no pipe
     "fone": , //Não obrigatorio no pipe
     "email": org_id.cc_email //Não obrigatorio no pipe
   },
