@@ -6,9 +6,11 @@ const consolidatedRouter = Router();
 
 consolidatedRouter.get('/', async (req, res) => {
   const consolidatedService = new ConsolidatedService();
-  const consolidated = consolidatedService.execute();
+  await consolidatedService.execute();
 
-  return res.json(consolidated);
+  return res
+    .status(201)
+    .json({ message: 'Get data from Bling and insert into DataBase' });
 });
 
 export default consolidatedRouter;

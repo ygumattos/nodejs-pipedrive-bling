@@ -1,18 +1,22 @@
-import { Document } from 'mongoose';
 import ConsolidatedModel from '../models/ConsolidatedModel';
+import DealsFromBling from './getDealsfromBling';
 
 export default class Service {
-  public async execute(): Promise<Document> {
+  public async execute(): Promise<void> {
+    const dealsFromBling = new DealsFromBling();
+    const { data } = await dealsFromBling.execute();
     try {
-      const consolidated = new ConsolidatedModel({
-        name: 'test 1',
-        date: Date.now(),
-        total_value: '1000',
+      data.retorno.pedidos.map(async thisPedido => {
+        const consolidated = new ConsolidatedModel({
+          name: thisPedido.pedido.cliente.nome,
+          date: new Date(thisPedido.pedido.data),
+          total_value: thisPedido.pedido.totalvenda || 0,
+        });
+        await consolidated.save();
       });
-      await consolidated.save();
-      return consolidated;
+      return;
     } catch (error) {
-      return error;
+      console.log(error);
     }
   }
 }
