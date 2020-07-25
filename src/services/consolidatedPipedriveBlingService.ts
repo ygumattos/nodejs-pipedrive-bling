@@ -1,65 +1,9 @@
 import WonDealsService from './getWonDealsServices';
 import ParseBlingSale from './parseBlingSale';
 import CreateBling from './createBlingSaleService';
+import Response from '../interfaces/FormatToBlingInterface';
 
 import getRandomInt from '../common/generateRandomNumber';
-
-interface data {
-  id: number;
-  user_id: {
-    name: string;
-  };
-  person_id: {
-    name: string;
-    email: [
-      {
-        value: string;
-      },
-    ];
-    phone: [
-      {
-        value: string;
-      },
-    ];
-  };
-  title: string;
-  value: number;
-  currency: string;
-  status: string;
-  products_count: number;
-  products: {
-    code: number;
-    description: string;
-    unity: string;
-    quantity: number;
-    total_value: number;
-  };
-}
-
-interface Response {
-  pedido: {
-    cliente: {
-      nome: string;
-      tipoPessoa: string;
-      cpf_cnpj: string;
-      ie_rg: string;
-      fone: string;
-      email: string;
-    };
-    itens: {
-      item: {
-        codigo: number;
-        descricao: string;
-        un: string;
-        qtde: number;
-        vlr_unit: number;
-      };
-    };
-    situacao: string;
-    totalvenda: number;
-    vendedor: string;
-  };
-}
 
 export default class Service {
   public async execute(): Promise<Response[]> {

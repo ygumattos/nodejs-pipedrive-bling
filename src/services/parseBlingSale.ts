@@ -1,4 +1,5 @@
-const generateCPF = require('../common/generateCPF');
+import Response from '../interfaces/FormatToBlingInterface';
+import generateCPF from '../common/generateCPF';
 
 interface Request {
   products: {
@@ -31,34 +32,6 @@ interface Request {
   status: string;
   products_count: number;
 }
-
-interface Response {
-  pedido: {
-    cliente: {
-      nome: string;
-      tipoPessoa: string;
-      cpf_cnpj: string;
-      ie_rg: string;
-      fone: string;
-      email: string;
-    };
-    itens: {
-      item: {
-        codigo: number;
-        descricao: string;
-        un: string;
-        qtde: number;
-        vlr_unit: number;
-      };
-    };
-    situacao: string;
-    totalvenda: number;
-    vendedor: string;
-  };
-}
-
-console.log(generateCPF('cpf'));
-console.log(generateCPF('rg'));
 
 export default class Service {
   public execute(deal: Request): Response {

@@ -1,32 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import 'dotenv/config';
-
-const convertXML = require('../common/convertXML');
-
-interface Response {
-  pedido: {
-    cliente: {
-      nome: string;
-      tipoPessoa: string;
-      cpf_cnpj: string;
-      ie_rg: string;
-      fone: string;
-      email: string;
-    };
-    itens: {
-      item: {
-        codigo: number;
-        descricao: string;
-        un: string;
-        qtde: number;
-        vlr_unit: number;
-      };
-    };
-    situacao: string;
-    totalvenda: number;
-    vendedor: string;
-  };
-}
+import Response from '../interfaces/FormatToBlingInterface';
+import convertXML from '../common/convertXML';
 
 export default class Service {
   public async execute(data: Response): Promise<AxiosResponse> {
