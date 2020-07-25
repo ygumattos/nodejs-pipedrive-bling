@@ -34,6 +34,7 @@ pipedriveRouter.get('/wondeals', async (req, res) => {
 });
 
 pipedriveRouter.get('/deals/consolidated', async (req, res) => {
+  // from pipedrive to bling
   const getConsolidedDealService = new ConsolidatedPipedriveBlingService();
   const consolidedDeals = await getConsolidedDealService.execute();
 
