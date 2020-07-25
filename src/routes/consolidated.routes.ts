@@ -5,7 +5,7 @@ import ConsolidatedRepository from '../repositories/ConsolidatedRepository';
 
 const consolidatedRouter = Router();
 
-consolidatedRouter.get('/', async (req, res) => {
+consolidatedRouter.get('/create', async (req, res) => {
   const consolidatedService = new ConsolidatedService();
   await consolidatedService.execute();
 

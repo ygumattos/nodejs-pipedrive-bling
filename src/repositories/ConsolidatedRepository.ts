@@ -6,11 +6,15 @@ class ConsolidatedRepository {
   public async findByDate(date: Date): Promise<Document[] | null> {
     const start = moment(date).startOf('day').subtract(3, 'hours');
     const end = moment(date).endOf('day').subtract(3, 'hours');
-    console.log(moment(start).toDate());
-    console.log(moment(end).toDate());
+
     const findConsolidatedDeals = await ConsolidatedModel.find({
       date: { $gte: start, $lte: end },
     });
+
+    const t = moment('2020-07-25').toDate().getDate();
+    const d = moment().toDate().getDate();
+    const f = t === d;
+    console.log(f);
 
     return findConsolidatedDeals || null;
   }
