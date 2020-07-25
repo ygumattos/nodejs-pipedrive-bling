@@ -9,7 +9,6 @@ export default class Service {
   public async execute(): Promise<Response[]> {
     const wonDealsService = new WonDealsService();
     const wonDeals = await wonDealsService.execute();
-    // const wonDealsPerson = wonDeals.filter(deal => deal.person_id);
     const wonDealsPersonWithProducts = wonDeals.map(deal => {
       const productsDeal = {
         code: getRandomInt(999, 1),
