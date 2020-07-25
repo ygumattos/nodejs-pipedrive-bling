@@ -12,7 +12,7 @@ yarn or npm i
 #### For use:
 
 ```
-yarn dev:server
+yarn dev:server or npm run dev:server
 ```
 ## Routes
 
@@ -40,7 +40,7 @@ curl --request GET \
 
 > /pipedrive/deal/products/:id
 
-Get details about a products of deal by deal's id from Pipedrive
+Get details about all products of deal by deal's id from Pipedrive
 
 ```curl
 curl --request GET \
@@ -56,7 +56,7 @@ curl --request GET \
 ```
 > /pipedrive/deals/consolidated
 
-Convert data of Deals from Pipedrive and insert into Bling.
+Convert data of deals from Pipedrive and insert into Bling.
 
 OBS.: Only insert data of today but return all data in Pipedrive.
 
