@@ -1453,6 +1453,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jstoxml@^1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-1.6.8.tgz#ef35464e578543604dfc29d8d4505cf8891b4643"
+  integrity sha512-wLfvRrQdydad21Hrn/erZezskrCo80oVfDOVdwpqx5vhhrSO32bAl49bdhNWcueglELR7/vqQU0sP2J7sCdMIg==
+
 kind-of@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-2.0.1.tgz#018ec7a4ce7e3a86cb9141be519d24c8faa981b5"

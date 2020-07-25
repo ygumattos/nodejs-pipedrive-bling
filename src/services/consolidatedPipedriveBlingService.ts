@@ -1,5 +1,6 @@
 import WonDealsService from './getWonDealsServices';
 import ParseBlingSale from './parseBlingSale';
+import CreateBling from './createBlingSaleService';
 
 import getRandomInt from '../common/generateRandomNumber';
 
@@ -36,26 +37,28 @@ interface data {
 }
 
 interface Response {
-  cliente: {
-    nome: string;
-    tipoPessoa: string;
-    cpf_cnpj: string;
-    ie_rg: string;
-    fone: string;
-    email: string;
-  };
-  itens: {
-    item: {
-      codigo: number;
-      descricao: string;
-      un: string;
-      qtde: number;
-      vlr_unit: number;
+  pedido: {
+    cliente: {
+      nome: string;
+      tipoPessoa: string;
+      cpf_cnpj: string;
+      ie_rg: string;
+      fone: string;
+      email: string;
     };
+    itens: {
+      item: {
+        codigo: number;
+        descricao: string;
+        un: string;
+        qtde: number;
+        vlr_unit: number;
+      };
+    };
+    situacao: string;
+    totalvenda: number;
+    vendedor: string;
   };
-  situacao: string;
-  totalvenda: number;
-  vendedor: string;
 }
 
 export default class Service {
@@ -78,6 +81,16 @@ export default class Service {
     const parsedDeals = wonDealsPersonWithProducts.map(deal =>
       parseBling.execute(deal),
     );
+
+    const createBling = new CreateBling();
+    try {
+      parsedDeals.map(async deal => {
+        const newDeal = await createBling.execute(deal);
+        return newDeal;
+      });
+    } catch (error) {
+      console.log(error);
+    }
 
     return parsedDeals;
   }
