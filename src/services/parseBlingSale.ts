@@ -1,5 +1,6 @@
 import Response from '../interfaces/FormatToBlingInterface';
 import generateCPF from '../common/generateCPF';
+import generateCNPJ from '../common/generateCNPJ';
 
 interface Request {
   products: {
@@ -45,7 +46,7 @@ export default class Service {
         cliente: {
           nome: deal.person_id ? deal.person_id.name : deal.org_id.name,
           tipoPessoa: deal.person_id ? 'F' : 'J',
-          cpf_cnpj: generateCPF('cpf'),
+          cpf_cnpj: deal.person_id ? generateCPF('cpf') : generateCNPJ(),
           ie_rg: generateCPF('rg'),
           fone: deal.person_id ? deal.person_id.phone[0].value : '',
           email: deal.person_id ? deal.person_id.email[0].value : '',
