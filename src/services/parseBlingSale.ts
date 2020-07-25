@@ -26,6 +26,10 @@ interface Request {
       },
     ];
   };
+  org_id: {
+    name: string;
+    address: string;
+  };
   title: string;
   value: number;
   currency: string;
@@ -38,12 +42,13 @@ export default class Service {
     const parsedDeal = {
       pedido: {
         cliente: {
-          nome: deal.person_id.name,
-          tipoPessoa: 'F',
+          nome: deal.person_id ? deal.person_id.name : deal.org_id.name,
+          tipoPessoa: deal.person_id ? 'F' : 'J',
           cpf_cnpj: generateCPF('cpf'),
           ie_rg: generateCPF('rg'),
-          fone: deal.person_id.phone[0].value,
-          email: deal.person_id.email[0].value,
+          fone: deal.person_id ? deal.person_id.phone[0].value : '',
+          email: deal.person_id ? deal.person_id.email[0].value : '',
+          endereco: deal.person_id ? '' : deal.org_id.address,
         },
         itens: {
           item: {

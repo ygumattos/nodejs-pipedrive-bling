@@ -18,6 +18,10 @@ interface data {
       },
     ];
   };
+  org_id: {
+    name: string;
+    address: string;
+  };
   title: string;
   value: number;
   currency: string;
