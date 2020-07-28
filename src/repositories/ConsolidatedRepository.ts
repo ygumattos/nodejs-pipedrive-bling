@@ -11,11 +11,6 @@ class ConsolidatedRepository {
       date: { $gte: start, $lte: end },
     });
 
-    const t = moment('2020-07-25').toDate().getDate();
-    const d = moment().toDate().getDate();
-    const f = t === d;
-    console.log(f);
-
     return findConsolidatedDeals || null;
   }
 }
